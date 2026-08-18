@@ -454,6 +454,14 @@ h2.section-title {
   margin-left: 4px;
 }
 .brief-list .meta { color: var(--ink-faint); }
+a.pub-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.pub-link:hover { color: var(--accent); }
+a.pub-link:hover .tag { text-decoration: none; }
 .view-all {
   display: inline-block;
   font-size: 0.85rem;
