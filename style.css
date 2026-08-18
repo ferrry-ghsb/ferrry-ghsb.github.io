@@ -72,6 +72,10 @@ nav.topnav {
   text-decoration: none;
 }
 .topnav-links a:hover { color: var(--accent); }
+@media (max-width: 560px) {
+  .topnav-inner { flex-wrap: wrap; row-gap: 8px; padding: 14px 20px; }
+  .topnav-links { gap: 12px 14px; flex-wrap: wrap; justify-content: flex-end; }
+}
 
 /* Theme toggle */
 .theme-toggle {
@@ -180,18 +184,35 @@ nav.links {
   gap: 10px;
   margin-top: 24px;
 }
-nav.links a {
+.link-pill {
+  font-family: inherit;
   font-size: 0.82rem;
   text-decoration: none;
   color: var(--accent);
+  background: transparent;
   border: 1px solid var(--line);
   padding: 7px 14px;
   border-radius: 999px;
+  cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-nav.links a:hover {
+.link-pill:hover {
   background: var(--accent-soft);
   border-color: var(--accent);
+}
+.email-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  transition: max-height 0.25s ease, opacity 0.25s ease, margin 0.25s ease;
+}
+.email-reveal.is-open {
+  max-height: 40px;
+  opacity: 1;
+  margin-top: 12px;
 }
 
 section { margin-bottom: 48px; }
@@ -257,6 +278,27 @@ h2.section-title {
   margin-top: 12px;
   display: block;
   background: #000;
+}
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin-top: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-caption {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
 }
 @media (max-width: 640px) {
   .card-grid { grid-template-columns: 1fr; }

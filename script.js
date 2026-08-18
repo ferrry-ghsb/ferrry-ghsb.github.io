@@ -10,6 +10,17 @@
   });
 })();
 
+// ---------- Email reveal toggle ----------
+(function () {
+  var btn = document.getElementById('emailToggle');
+  var reveal = document.getElementById('emailReveal');
+  if (!btn || !reveal) return;
+  btn.addEventListener('click', function () {
+    var open = reveal.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+
 // ---------- Scroll reveal ----------
 (function () {
   var items = document.querySelectorAll('.reveal');
@@ -179,6 +190,10 @@
   activate(nodes[0]);
   drawLines();
   window.addEventListener('load', drawLines);
+  // Redraw once more after the section's fade-in transition finishes, in
+  // case the reveal animation shifted its final layout position.
+  setTimeout(drawLines, 700);
+  setTimeout(drawLines, 1400);
 
   var resizeTimer;
   window.addEventListener('resize', function () {

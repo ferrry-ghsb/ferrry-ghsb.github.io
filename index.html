@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <script>
   (function () {
     try {
@@ -63,11 +63,12 @@
       <p class="affiliation advisor">Advisor: Prof. Kyoungwon Seo — <a href="https://hai.seoultech.ac.kr/index.do" target="_blank" rel="noopener">HAI Lab ↗</a></p>
 
       <nav class="links">
-        <a href="mailto:ferrry@seoultech.ac.kr">Email</a>
-        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
-        <a href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a>
+        <button type="button" class="link-pill" id="emailToggle" aria-expanded="false">Email</button>
+        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="link-pill" href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="link-pill" href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
+      <p class="email-reveal" id="emailReveal">ferrry@seoultech.ac.kr</p>
     </header>
 
     <section class="about reveal" id="about">
@@ -142,7 +143,10 @@
             person performs an activity, not just whether they complete it, carries clinically
             meaningful signal.
           </p>
-          <!-- Demo video pending: drop demo.mp4 in the repo root and this card is wired to show it. -->
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/gaE9tQvdwOE?start=107&amp;end=122" title="Virtual kiosk test demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="video-caption">Virtual kiosk test in action (1:47–2:02)</p>
         </div>
         <div class="card">
           <h3>Explainable, Multimodal Clinical Decision Support</h3>
@@ -158,8 +162,8 @@
     <section class="pub-teaser reveal">
       <h2 class="section-title">Selected Publications</h2>
       <ul class="pub-list">
-        <li>Park, B., <strong>Kim, Y.</strong>, et al. (2024). Integrating biomarkers from virtual reality and magnetic resonance imaging for the early detection of mild cognitive impairment. <span class="venue">Journal of Medical Internet Research</span>, 26, e54538. <span class="tag">SCIE, top 10%</span></li>
-        <li><strong>Kim, S. Y.</strong>, et al. (2023). Digital marker for early screening of mild cognitive impairment through hand and eye movement analysis in virtual reality. <span class="venue">Journal of Medical Internet Research</span>, 25, e48093. <span class="tag">SCIE, top 10%</span></li>
+        <li>Park, B., <strong>Kim, Y.</strong>, et al. (2024). Integrating biomarkers from virtual reality and magnetic resonance imaging for the early detection of mild cognitive impairment. <span class="venue">Journal of Medical Internet Research</span>, 26, e54538. <span class="tag">SCIE, Q1, Top 3%</span></li>
+        <li><strong>Kim, S. Y.</strong>, et al. (2023). Digital marker for early screening of mild cognitive impairment through hand and eye movement analysis in virtual reality. <span class="venue">Journal of Medical Internet Research</span>, 25, e48093. <span class="tag">SCIE, Q1, Top 3%</span></li>
       </ul>
       <a class="view-all" href="publications.html">View all publications, patents &amp; awards →</a>
     </section>
@@ -171,7 +175,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
