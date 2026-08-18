@@ -56,19 +56,25 @@
     </div>
 
     <div class="filter-bar reveal">
-      <div class="filter-group" data-filter-group="type">
-        <button type="button" class="filter-btn active" data-filter="all">All types</button>
-        <button type="button" class="filter-btn" data-filter="journal">Journal</button>
-        <button type="button" class="filter-btn" data-filter="conference">Conference</button>
-        <button type="button" class="filter-btn" data-filter="patent">Patent</button>
-        <button type="button" class="filter-btn" data-filter="award">Award</button>
+      <div class="filter-row">
+        <span class="filter-row-label">Type</span>
+        <div class="filter-group" data-filter-group="type">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="journal">Journal</button>
+          <button type="button" class="filter-btn" data-filter="conference">Conference</button>
+          <button type="button" class="filter-btn" data-filter="patent">Patent</button>
+          <button type="button" class="filter-btn" data-filter="award">Award</button>
+        </div>
       </div>
-      <div class="filter-group" data-filter-group="year">
-        <button type="button" class="filter-btn active" data-filter="all">All years</button>
-        <button type="button" class="filter-btn" data-filter="2025">2025</button>
-        <button type="button" class="filter-btn" data-filter="2024">2024</button>
-        <button type="button" class="filter-btn" data-filter="2023">2023</button>
-        <button type="button" class="filter-btn" data-filter="2022">2022</button>
+      <div class="filter-row">
+        <span class="filter-row-label">Year</span>
+        <div class="filter-group" data-filter-group="year">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="2025">2025</button>
+          <button type="button" class="filter-btn" data-filter="2024">2024</button>
+          <button type="button" class="filter-btn" data-filter="2023">2023</button>
+          <button type="button" class="filter-btn" data-filter="2022">2022</button>
+        </div>
       </div>
       <p class="filter-empty">No items match this filter.</p>
     </div>

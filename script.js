@@ -90,16 +90,84 @@
   }
 })();
 
-// ---------- Multimodal fusion diagram ----------
+// ---------- Multimodal fusion diagram (SVG connectors) ----------
 (function () {
-  var nodes = document.querySelectorAll('.diagram-node[data-caption]');
+  var diagram = document.querySelector('.diagram');
+  var svg = document.querySelector('.diagram-svg');
+  var nodes = document.querySelectorAll('.dnode[data-caption]');
   var captionEl = document.querySelector('.diagram-caption');
-  if (!nodes.length || !captionEl) return;
+  if (!diagram || !svg || !nodes.length || !captionEl) return;
+
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var sourceKeys = ['vr', 'mri', 'eeg', 'neuro'];
+
+  function centerRight(el, containerRect) {
+    var r = el.getBoundingClientRect();
+    return { x: r.right - containerRect.left, y: r.top + r.height / 2 - containerRect.top };
+  }
+  function centerLeft(el, containerRect) {
+    var r = el.getBoundingClientRect();
+    return { x: r.left - containerRect.left, y: r.top + r.height / 2 - containerRect.top };
+  }
+
+  function drawLines() {
+    if (window.innerWidth <= 640) { svg.innerHTML = ''; return; }
+    var containerRect = diagram.getBoundingClientRect();
+    var fusionEl = diagram.querySelector('.dnode[data-key="fusion"]');
+    var decisionEl = diagram.querySelector('.dnode[data-key="decision"]');
+    if (!fusionEl || !decisionEl) return;
+
+    svg.setAttribute('width', containerRect.width);
+    svg.setAttribute('height', containerRect.height);
+    svg.innerHTML = '';
+
+    var fusionIn = centerLeft(fusionEl, containerRect);
+    var fusionOut = centerRight(fusionEl, containerRect);
+    var decisionIn = centerLeft(decisionEl, containerRect);
+
+    sourceKeys.forEach(function (key) {
+      var el = diagram.querySelector('.dnode[data-key="' + key + '"]');
+      if (!el) return;
+      var start = centerRight(el, containerRect);
+      var midX = (start.x + fusionIn.x) / 2;
+      var d = 'M ' + start.x + ' ' + start.y + ' C ' + midX + ' ' + start.y + ' ' + midX + ' ' + fusionIn.y + ' ' + fusionIn.x + ' ' + fusionIn.y;
+      var path = document.createElementNS(SVGNS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('data-source', key);
+      svg.appendChild(path);
+    });
+
+    var midX2 = (fusionOut.x + decisionIn.x) / 2;
+    var mainD = 'M ' + fusionOut.x + ' ' + fusionOut.y + ' C ' + midX2 + ' ' + fusionOut.y + ' ' + midX2 + ' ' + decisionIn.y + ' ' + decisionIn.x + ' ' + decisionIn.y;
+    var mainPath = document.createElementNS(SVGNS, 'path');
+    mainPath.setAttribute('d', mainD);
+    mainPath.setAttribute('data-source', 'fusion-decision');
+    mainPath.classList.add('dline-main');
+    svg.appendChild(mainPath);
+
+    highlight(currentKeys);
+  }
+
+  var currentKeys = [sourceKeys[0], 'fusion-decision'];
+
+  function highlight(keys) {
+    currentKeys = keys;
+    svg.querySelectorAll('path').forEach(function (p) {
+      p.classList.toggle('active', keys.indexOf(p.getAttribute('data-source')) !== -1);
+    });
+  }
 
   function activate(node) {
+    var key = node.getAttribute('data-key');
     nodes.forEach(function (n) { n.classList.remove('active'); });
     node.classList.add('active');
     captionEl.innerHTML = node.getAttribute('data-caption');
+
+    if (key === 'fusion' || key === 'decision') {
+      highlight(sourceKeys.concat(['fusion-decision']));
+    } else {
+      highlight([key, 'fusion-decision']);
+    }
   }
 
   nodes.forEach(function (node) {
@@ -109,6 +177,14 @@
   });
 
   activate(nodes[0]);
+  drawLines();
+  window.addEventListener('load', drawLines);
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(drawLines, 150);
+  });
 })();
 
 // ---------- Publications filter ----------
