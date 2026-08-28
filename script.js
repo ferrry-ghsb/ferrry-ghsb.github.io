@@ -101,6 +101,29 @@
   }
 })();
 
+// ---------- Research Projects carousel arrows ----------
+(function () {
+  var track = document.getElementById('projectCarousel');
+  if (!track) return;
+  var prevBtn = document.querySelector('.carousel-prev');
+  var nextBtn = document.querySelector('.carousel-next');
+
+  function step() {
+    var card = track.querySelector('.project-card');
+    return card ? card.getBoundingClientRect().width + 16 : 300;
+  }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+  }
+})();
+
 // ---------- Publications filter ----------
 (function () {
   var bar = document.querySelector('.filter-bar');
