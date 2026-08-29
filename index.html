@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=10">
 <script>
   (function () {
     try {
@@ -78,11 +78,6 @@
         <span class="pill">Multimodal Analytics</span>
       </div>
 
-      <p class="about-lede">
-        I turn multimodal signals — VR behavior, EEG, MRI, physiological data — into explainable
-        AI systems that support human decision-making.
-      </p>
-
       <div class="stat-grid">
         <div class="stat">
           <span class="stat-num">4</span>
@@ -101,6 +96,11 @@
           <span class="stat-label">Patents</span>
         </div>
       </div>
+
+      <p class="about-lede">
+        I turn multimodal signals — VR behavior, EEG, MRI, physiological data — into explainable
+        AI systems that support human decision-making.
+      </p>
 
       <p class="about-network">
         Built and validated through multidisciplinary collaboration with clinical experts at
@@ -122,12 +122,6 @@
 
     <section class="projects reveal" id="projects">
       <h2 class="section-title">Research Projects</h2>
-      <p class="projects-intro">
-        As Principal Investigator or Lead Researcher, I have secured and led five nationally-funded
-        R&amp;D projects built on one core method — turning multimodal sensor and behavioral data
-        into explainable, decision-support AI — applied across clinical diagnostics, robotic
-        intervention, and accessibility-focused assessment.
-      </p>
 
       <div class="project-carousel-wrap">
         <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous project">‹</button>
@@ -221,6 +215,20 @@
         </div>
         <button type="button" class="carousel-arrow carousel-next" aria-label="Next project">›</button>
       </div>
+      <div class="carousel-dots" id="projectDots" role="tablist" aria-label="Select project">
+        <button type="button" class="dot active" data-index="0" aria-label="Project 1: LLM-Based Clinical Decision Support Tool"></button>
+        <button type="button" class="dot" data-index="1" aria-label="Project 2: On-Device AI-Based Self-Guided Hemorrhage Management System"></button>
+        <button type="button" class="dot" data-index="2" aria-label="Project 3: AI-Based Analysis of Social Interaction Abilities"></button>
+        <button type="button" class="dot" data-index="3" aria-label="Project 4: VR, EP, EEG, MRI Data Aggregation"></button>
+        <button type="button" class="dot" data-index="4" aria-label="Project 5: Digital Biomarker for Early Diagnosis of Dementia in VR"></button>
+      </div>
+
+      <p class="projects-intro">
+        As Principal Investigator or Lead Researcher, I have secured and led five nationally-funded
+        R&amp;D projects built on one core method — turning multimodal sensor and behavioral data
+        into explainable, decision-support AI — applied across clinical diagnostics, robotic
+        intervention, and accessibility-focused assessment.
+      </p>
       <a class="view-all" href="projects.html">View all projects →</a>
     </section>
 
@@ -268,7 +276,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="script.js?v=8" defer></script>
+  <script src="script.js?v=10" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
