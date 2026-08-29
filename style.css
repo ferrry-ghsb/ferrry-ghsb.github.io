@@ -120,12 +120,33 @@ header.hero {
   height: 176px;
   margin: 0 auto 20px;
 }
-.avatar-stage canvas {
+.avatar-ring {
   position: absolute;
   inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  opacity: 0.55;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.avatar-ring-outer {
+  animation: avatar-spin 34s linear infinite;
+}
+.avatar-ring-inner {
+  inset: 16px;
+  border-style: dashed;
+  opacity: 0.4;
+  animation: avatar-spin-reverse 24s linear infinite;
+}
+@keyframes avatar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes avatar-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar-ring-outer, .avatar-ring-inner { animation: none; }
 }
 .avatar {
   position: relative;
@@ -405,11 +426,12 @@ h2.section-title {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 4px 4px 12px;
+  padding: 4px;
   margin: 0 -4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.project-carousel::-webkit-scrollbar { height: 6px; }
-.project-carousel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+.project-carousel::-webkit-scrollbar { display: none; }
 .project-card {
   flex: 0 0 100%;
   width: 100%;
@@ -496,7 +518,7 @@ h2.section-title {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-bottom: 16px;
 }
 .carousel-dots .dot {
   width: 8px;
@@ -533,7 +555,7 @@ h2.section-title {
 
 /* Research projects */
 .projects-intro {
-  margin: 20px 0 0;
+  margin: 0 0 20px;
   color: var(--ink-soft);
   font-size: 0.95rem;
 }
