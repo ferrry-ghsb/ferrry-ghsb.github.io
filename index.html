@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <script>
   (function () {
     try {
@@ -85,22 +85,18 @@
 
       <div class="stat-grid">
         <div class="stat">
-          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h1"/></svg></span>
           <span class="stat-num">4</span>
           <span class="stat-label">Q1 Journal Papers</span>
         </div>
         <div class="stat">
-          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
           <span class="stat-num">10</span>
           <span class="stat-label">Conference Papers</span>
         </div>
         <div class="stat">
-          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.4 10.9c.6.5 1.4 1.3 1.4 2.1h4c0-.8.8-1.6 1.4-2.1A6 6 0 0 0 12 3z"/></svg></span>
           <span class="stat-num">5</span>
           <span class="stat-label">Funded R&amp;D Projects</span>
         </div>
         <div class="stat">
-          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5 5 2.5-1.5-8.5"/></svg></span>
           <span class="stat-num">3</span>
           <span class="stat-label">Patents</span>
         </div>
@@ -112,10 +108,15 @@
         Industrial Technology (KITECH)</strong>, and international academic partners at the
         <strong>Zurich University of Applied Sciences</strong>.
       </p>
-      <div class="logo-strip" aria-label="Collaborating institutions">
-        <span class="logo-chip"><img src="asan.png" alt="Asan Medical Center"></span>
-        <span class="logo-chip"><img src="kitech.png" alt="Korea Institute of Industrial Technology (KITECH)"></span>
-        <span class="logo-chip"><img src="zhaw.png" alt="Zurich University of Applied Sciences"></span>
+      <div class="logo-marquee" aria-label="Collaborating institutions">
+        <div class="logo-track">
+          <span class="logo-chip"><img src="asan.png" alt="Asan Medical Center"></span>
+          <span class="logo-chip"><img src="kitech.png" alt="Korea Institute of Industrial Technology (KITECH)"></span>
+          <span class="logo-chip"><img src="zhaw.png" alt="Zurich University of Applied Sciences"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="asan.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="kitech.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="zhaw.png" alt="" aria-hidden="true"></span>
+        </div>
       </div>
     </section>
 
@@ -133,11 +134,13 @@
         <div class="project-carousel" id="projectCarousel">
 
           <a class="project-card" href="project-llm-cds.html">
+            <div class="project-card-top">
+              <h3>LLM-Based Clinical Decision Support Tool for Alzheimer's Disease</h3>
+            </div>
             <div class="project-card-media">
               <span class="placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></span>
             </div>
             <div class="project-card-body">
-              <h3>LLM-Based Clinical Decision Support Tool for Alzheimer's Disease</h3>
               <p class="project-card-sub">Multimodal reasoning integrating VR, MRI, and neuropsychological tests</p>
               <div class="project-card-meta">
                 <span class="tag role">Principal Investigator</span>
@@ -148,11 +151,13 @@
           </a>
 
           <a class="project-card" href="project-hemorrhage-robot.html">
+            <div class="project-card-top">
+              <h3>On-Device AI-Based Self-Guided Hemorrhage Management System</h3>
+            </div>
             <div class="project-card-media">
               <span class="placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"/><path d="M6 15.8V10a4 4 0 0 1 4-4h4.5"/><circle cx="17" cy="6" r="2.2"/><path d="M9 12h3"/></svg></span>
             </div>
             <div class="project-card-body">
-              <h3>On-Device AI-Based Self-Guided Hemorrhage Management System</h3>
               <p class="project-card-sub">Autonomous vascular-intervention robotics using ultrasound image data</p>
               <div class="project-card-meta">
                 <span class="tag role">Lead Researcher</span>
@@ -163,11 +168,13 @@
           </a>
 
           <a class="project-card" href="project-social-interaction.html">
+            <div class="project-card-top">
+              <h3>AI-Based Analysis of Social Interaction Abilities via Immersive Content</h3>
+            </div>
             <div class="project-card-media">
               <span class="placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="3"/><path d="M2.5 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><circle cx="17.5" cy="8" r="2.6"/><path d="M15 8.8a5 5 0 0 1 6.5 4.8"/></svg></span>
             </div>
             <div class="project-card-body">
-              <h3>AI-Based Analysis of Social Interaction Abilities via Immersive Content</h3>
               <p class="project-card-sub">For individuals with developmental disabilities</p>
               <div class="project-card-meta">
                 <span class="tag role">Lead Researcher</span>
@@ -178,11 +185,13 @@
           </a>
 
           <a class="project-card" href="project-veem-aggregation.html">
+            <div class="project-card-top">
+              <h3>VR, EP, EEG, MRI Data Aggregation for Digital Dementia Biomarker</h3>
+            </div>
             <div class="project-card-media">
               <span class="placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></span>
             </div>
             <div class="project-card-body">
-              <h3>VR, EP, EEG, MRI Data Aggregation for Digital Dementia Biomarker</h3>
               <p class="project-card-sub">A unified multimodal pipeline for early screening of Mild Cognitive Impairment</p>
               <div class="project-card-meta">
                 <span class="tag role">Lead Researcher</span>
@@ -193,11 +202,13 @@
           </a>
 
           <a class="project-card" href="project-vr-kiosk.html">
+            <div class="project-card-top">
+              <h3>Digital Biomarker for Early Diagnosis of Dementia in VR</h3>
+            </div>
             <div class="project-card-media">
               <span class="placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
             </div>
             <div class="project-card-body">
-              <h3>Digital Biomarker for Early Diagnosis of Dementia in VR</h3>
               <p class="project-card-sub">The VR virtual-kiosk cognitive test and eye/hand-tracking system</p>
               <div class="project-card-meta">
                 <span class="tag role">Lead Researcher</span>
@@ -257,7 +268,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=8" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
