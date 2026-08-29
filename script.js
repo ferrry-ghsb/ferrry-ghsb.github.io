@@ -47,66 +47,16 @@
   }, 1200);
 })();
 
-// ---------- Hero 3D orb (three.js, loaded from cdnjs) ----------
-(function () {
-  var stage = document.querySelector('.avatar-stage');
-  if (!stage || typeof THREE === 'undefined') return;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  try {
-    var size = stage.clientWidth || 160;
-    var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(size, size);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    stage.insertBefore(renderer.domElement, stage.firstChild);
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 4.2;
-
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    var color = isDark ? 0x6cbfa4 : 0x2f5d50;
-
-    var geometry = new THREE.IcosahedronGeometry(1.5, 1);
-    var edges = new THREE.EdgesGeometry(geometry);
-    var material = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.7 });
-    var wire = new THREE.LineSegments(edges, material);
-    scene.add(wire);
-
-    var innerGeo = new THREE.IcosahedronGeometry(0.75, 0);
-    var innerMat = new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: 0.12, wireframe: true });
-    var inner = new THREE.Mesh(innerGeo, innerMat);
-    scene.add(inner);
-
-    function render() {
-      renderer.render(scene, camera);
-    }
-
-    if (reduceMotion) {
-      wire.rotation.set(0.4, 0.6, 0);
-      inner.rotation.set(0.2, 0.3, 0);
-      render();
-    } else {
-      (function animate() {
-        wire.rotation.y += 0.0035;
-        wire.rotation.x += 0.0015;
-        inner.rotation.y -= 0.002;
-        inner.rotation.x += 0.001;
-        render();
-        requestAnimationFrame(animate);
-      })();
-    }
-  } catch (e) {
-    // WebGL unavailable — the static avatar circle already renders underneath.
-  }
-})();
-
-// ---------- Research Projects carousel arrows ----------
+// ---------- Research Projects carousel: arrows + dot navigation ----------
 (function () {
   var track = document.getElementById('projectCarousel');
   if (!track) return;
   var prevBtn = document.querySelector('.carousel-prev');
   var nextBtn = document.querySelector('.carousel-next');
+  var dotsWrap = document.getElementById('projectDots');
+  var dots = dotsWrap ? Array.prototype.slice.call(dotsWrap.querySelectorAll('.dot')) : [];
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.project-card'));
 
   function step() {
     var card = track.querySelector('.project-card');
@@ -121,6 +71,33 @@
     nextBtn.addEventListener('click', function () {
       track.scrollBy({ left: step(), behavior: 'smooth' });
     });
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      var card = cards[i];
+      if (!card) return;
+      card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      dots.forEach(function (d, di) { d.classList.toggle('active', di === i); });
+    });
+  });
+
+  function updateActiveDot() {
+    if (!dots.length || !cards.length) return;
+    var trackRect = track.getBoundingClientRect();
+    var closest = 0;
+    var minDist = Infinity;
+    cards.forEach(function (card, i) {
+      var dist = Math.abs(card.getBoundingClientRect().left - trackRect.left);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === closest); });
+  }
+  if (dots.length) {
+    track.addEventListener('scroll', function () {
+      window.requestAnimationFrame(updateActiveDot);
+    }, { passive: true });
+    updateActiveDot();
   }
 })();
 
