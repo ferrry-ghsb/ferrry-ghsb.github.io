@@ -119,34 +119,40 @@ header.hero {
   width: 176px;
   height: 176px;
   margin: 0 auto 20px;
+  perspective: 700px;
 }
-.avatar-ring {
+.cube-3d {
   position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid var(--accent);
-  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  margin: -64px 0 0 -64px;
+  transform-style: preserve-3d;
+  animation: cube-spin 16s linear infinite;
   pointer-events: none;
 }
-.avatar-ring-outer {
-  animation: avatar-spin 34s linear infinite;
+.cube-face {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  box-sizing: border-box;
+  border: 1px solid var(--accent);
+  opacity: 0.35;
+  background: transparent;
 }
-.avatar-ring-inner {
-  inset: 16px;
-  border-style: dashed;
-  opacity: 0.4;
-  animation: avatar-spin-reverse 24s linear infinite;
-}
-@keyframes avatar-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes avatar-spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+.cube-front  { transform: translateZ(64px); }
+.cube-back   { transform: translateZ(-64px) rotateY(180deg); }
+.cube-right  { transform: rotateY(90deg) translateZ(64px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(64px); }
+.cube-top    { transform: rotateX(90deg) translateZ(64px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(64px); }
+@keyframes cube-spin {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .avatar-ring-outer, .avatar-ring-inner { animation: none; }
+  .cube-3d { animation: none; }
 }
 .avatar {
   position: relative;
@@ -175,7 +181,7 @@ header.hero {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent);
-  margin: 0 0 10px;
+  margin: 0 0 2px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -315,13 +321,17 @@ h2.section-title {
 /* Auto-scrolling logo marquee */
 .logo-marquee {
   overflow: hidden;
+  margin-top: 6px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 .logo-track {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 0;
   width: max-content;
   animation: logo-scroll 16s linear infinite;
 }
@@ -337,15 +347,12 @@ h2.section-title {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  height: 50px;
-  padding: 0 18px;
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 10px;
+  height: 40px;
+  padding: 0 26px;
   box-sizing: border-box;
 }
 .logo-chip img {
-  height: 28px;
+  height: 26px;
   width: auto;
   display: block;
 }

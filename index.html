@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="style.css?v=12">
 <script>
   (function () {
     try {
@@ -35,8 +35,7 @@
     <div class="topnav-inner">
       <a class="brand" href="index.html">Yuwon Kim</a>
       <div class="topnav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="projects.html">Projects</a>
         <a href="publications.html">Publications</a>
         <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
         <a href="mailto:ferrry@seoultech.ac.kr">Contact</a>
@@ -52,8 +51,14 @@
 
     <header class="hero">
       <div class="avatar-stage">
-        <div class="avatar-ring avatar-ring-outer" aria-hidden="true"></div>
-        <div class="avatar-ring avatar-ring-inner" aria-hidden="true"></div>
+        <div class="cube-3d" aria-hidden="true">
+          <div class="cube-face cube-front"></div>
+          <div class="cube-face cube-back"></div>
+          <div class="cube-face cube-right"></div>
+          <div class="cube-face cube-left"></div>
+          <div class="cube-face cube-top"></div>
+          <div class="cube-face cube-bottom"></div>
+        </div>
         <div class="avatar">
           <img src="profile.jpg" alt="Yuwon Kim">
         </div>
@@ -65,7 +70,9 @@
 
       <nav class="links">
         <button type="button" class="link-pill" id="emailToggle" aria-expanded="false">Email</button>
+        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
         <a class="link-pill" href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="link-pill" href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">ORCiD</a>
         <a class="link-pill" href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
       <p class="email-reveal" id="emailReveal">ferrry@seoultech.ac.kr</p>
@@ -100,15 +107,15 @@
       </div>
 
       <p class="about-lede">
-        I turn multimodal signals — VR behavior, EEG, MRI, physiological data — into explainable
-        AI systems that support human decision-making.
+        My research sits at the intersection of behavioral science and AI: turning multimodal
+        signals into explainable AI systems that support human decision-making.
       </p>
 
       <p class="about-network">
-        Built and validated through multidisciplinary collaboration with clinical experts at
-        <strong>Asan Medical Center</strong> (Seoul), engineers at the <strong>Korea Institute of
-        Industrial Technology (KITECH)</strong>, and international academic partners at the
-        <strong>Zurich University of Applied Sciences</strong>.
+        This multidisciplinary work is carried out in collaboration with clinicians at
+        <strong>Asan Medical Center</strong>, engineers at the <strong>Korea Institute of
+        Industrial Technology (KITECH)</strong>, and academic collaborators at the
+        <strong>Zurich University of Applied Sciences (ZHAW)</strong>.
       </p>
       <div class="logo-marquee" aria-label="Collaborating institutions">
         <div class="logo-track">
@@ -125,10 +132,8 @@
     <section class="projects reveal" id="projects">
       <h2 class="section-title">Research Projects</h2>
       <p class="projects-intro">
-        As Principal Investigator or Lead Researcher, I have secured and led five nationally-funded
-        R&amp;D projects built on one core method — turning multimodal sensor and behavioral data
-        into explainable, decision-support AI — applied across clinical diagnostics, robotic
-        intervention, and accessibility-focused assessment.
+        As Principal Investigator or Lead Researcher, I have led five funded R&amp;D projects across
+        virtual systems, clinical diagnostics, robotic intervention, and cognitive capacity assessment.
       </p>
 
       <div class="carousel-dots" id="projectDots" role="tablist" aria-label="Select project">
@@ -277,7 +282,7 @@
 
   </div>
 
-  <script src="script.js?v=11" defer></script>
+  <script src="script.js?v=12" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
