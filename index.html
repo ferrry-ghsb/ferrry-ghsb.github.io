@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=15">
 <script>
   (function () {
     try {
@@ -52,14 +52,6 @@
 
     <header class="hero">
       <div class="avatar-stage">
-        <div class="cube-3d" aria-hidden="true">
-          <div class="cube-face cube-front"></div>
-          <div class="cube-face cube-back"></div>
-          <div class="cube-face cube-right"></div>
-          <div class="cube-face cube-left"></div>
-          <div class="cube-face cube-top"></div>
-          <div class="cube-face cube-bottom"></div>
-        </div>
         <div class="avatar">
           <img src="profile.jpg" alt="Yuwon Kim">
         </div>
@@ -71,10 +63,10 @@
 
       <nav class="links">
         <button type="button" class="link-pill" id="emailToggle" aria-expanded="false">Email</button>
-        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
         <a class="link-pill" href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a class="link-pill" href="https://orcid.org/0000-0002-5946-6249" target="_blank" rel="noopener">ORCiD</a>
         <a class="link-pill" href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
       <p class="email-reveal" id="emailReveal">ferrry@seoultech.ac.kr</p>
     </header>
@@ -119,9 +111,13 @@
           <span class="logo-chip"><img src="asan.png" alt="Asan Medical Center"></span>
           <span class="logo-chip"><img src="kitech.png" alt="Korea Institute of Industrial Technology (KITECH)"></span>
           <span class="logo-chip"><img src="zhaw.png" alt="Zurich University of Applied Sciences"></span>
+          <span class="logo-chip"><img src="hanyang-seoul.png" alt="Hanyang University Seoul Hospital"></span>
+          <span class="logo-chip"><img src="hanyang-guri.png" alt="Hanyang University Guri Hospital"></span>
           <span class="logo-chip" aria-hidden="true"><img src="asan.png" alt="" aria-hidden="true"></span>
           <span class="logo-chip" aria-hidden="true"><img src="kitech.png" alt="" aria-hidden="true"></span>
           <span class="logo-chip" aria-hidden="true"><img src="zhaw.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="hanyang-seoul.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="hanyang-guri.png" alt="" aria-hidden="true"></span>
         </div>
       </div>
     </section>
@@ -275,11 +271,13 @@
 
     <footer>
       <p>&copy; <span id="year"></span> Yuwon Kim. Built with GitHub Pages.</p>
+      <p class="footer-contact"><a href="mailto:ferrry@seoultech.ac.kr">ferrry@seoultech.ac.kr</a></p>
     </footer>
 
   </div>
 
-  <script src="script.js?v=13" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="script.js?v=15" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

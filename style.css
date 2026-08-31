@@ -119,41 +119,13 @@ header.hero {
   width: 176px;
   height: 176px;
   margin: 0 auto 20px;
-  perspective: 700px;
 }
-.cube-3d {
+.avatar-stage canvas {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 128px;
-  height: 128px;
-  margin: -64px 0 0 -64px;
-  transform-style: preserve-3d;
-  animation: cube-spin 16s linear infinite;
-  pointer-events: none;
-}
-.cube-face {
-  position: absolute;
-  width: 128px;
-  height: 128px;
-  box-sizing: border-box;
-  border: 1px solid var(--accent);
-  opacity: 0.35;
-  background: transparent;
-}
-.cube-front  { transform: translateZ(64px); }
-.cube-back   { transform: translateZ(-64px) rotateY(180deg); }
-.cube-right  { transform: rotateY(90deg) translateZ(64px); }
-.cube-left   { transform: rotateY(-90deg) translateZ(64px); }
-.cube-top    { transform: rotateX(90deg) translateZ(64px); }
-.cube-bottom { transform: rotateX(-90deg) translateZ(64px); }
-@keyframes cube-spin {
-  from { transform: rotateX(0deg) rotateY(0deg); }
-  to { transform: rotateX(360deg) rotateY(360deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .cube-3d { animation: none; transform: rotateX(-18deg) rotateY(28deg); }
-  .logo-chip[aria-hidden="true"] { display: none; }
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0.55;
 }
 .avatar {
   position: relative;
@@ -325,12 +297,9 @@ h2.section-title {
   align-items: center;
   gap: 0;
   width: max-content;
-  animation: logo-scroll 16s linear infinite;
+  animation: logo-scroll 24s linear infinite;
 }
 .logo-marquee:hover .logo-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .logo-track { animation: none; }
-}
 @keyframes logo-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -861,3 +830,4 @@ footer {
   text-align: center;
 }
 footer a { color: var(--accent); }
+.footer-contact { margin: 6px 0 0; }
