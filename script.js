@@ -47,25 +47,26 @@
   }, 1200);
 })();
 
-// ---------- Hero 3D orb (self-contained — no external library, no WebGL) ----------
-// Draws a rotating wireframe icosahedron with plain 2D canvas + hand-rolled
-// 3D math. Previously this loaded three.js from a CDN and rendered via
-// WebGL; that dependency made the orb silently disappear whenever the CDN
-// script failed to load or WebGL was unavailable, with no visible error.
-// This version has zero external dependencies and only needs 2D canvas
-// support, so it can't fail to load. Intentionally always animates — does
-// not check prefers-reduced-motion — per request, so it keeps spinning
-// regardless of the visitor's OS motion setting.
+// ---------- Hero 3D orb: guaranteed-visible canvas fallback, upgraded to ----------
+// ---------- real three.js/WebGL rendering when the CDN succeeds ----------
+// The earlier version depended entirely on three.js loading from cdnjs;
+// when that failed silently, the orb disappeared with no visible error.
+// This version always starts a dependency-free 2D canvas wireframe first
+// (so something is guaranteed to render), then tries to load three.js in
+// the background for the nicer true-3D/WebGL look. If it loads, it swaps
+// in seamlessly; if it fails or times out, the canvas version just keeps
+// spinning. Intentionally always animates — does not check
+// prefers-reduced-motion — per request.
 (function () {
   var stage = document.querySelector('.avatar-stage');
   if (!stage) return;
 
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  // ---- Guaranteed-visible fallback (plain 2D canvas, no dependencies) ----
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext && canvas.getContext('2d');
-  if (!ctx) return;
-
-  stage.insertBefore(canvas, stage.firstChild);
-
+  var fallbackActive = false;
   var size = 0;
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -77,8 +78,6 @@
     canvas.style.height = size + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  resize();
-  window.addEventListener('resize', resize);
 
   function icosahedron(radius) {
     var t = (1 + Math.sqrt(5)) / 2;
@@ -115,10 +114,7 @@
 
   var outer = icosahedron(1.5);
   var inner = icosahedron(0.75);
-
-  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  var rgb = isDark ? '108, 191, 164' : '47, 93, 80'; // matches previous 0x6cbfa4 / 0x2f5d50
-
+  var rgb = isDark ? '108, 191, 164' : '47, 93, 80'; // matches three.js 0x6cbfa4 / 0x2f5d50
   var rotOuter = { x: 0, y: 0 };
   var rotInner = { x: 0, y: 0 };
   var focal = 4.2;
@@ -153,7 +149,8 @@
     ctx.stroke();
   }
 
-  (function frame() {
+  function fallbackFrame() {
+    if (!fallbackActive) return;
     ctx.clearRect(0, 0, size, size);
     rotOuter.y += 0.0035;
     rotOuter.x += 0.0015;
@@ -161,8 +158,69 @@
     rotInner.x += 0.001;
     drawShape(inner, rotInner, 'rgba(' + rgb + ', 0.3)', 1);
     drawShape(outer, rotOuter, 'rgba(' + rgb + ', 0.85)', 1.4);
-    requestAnimationFrame(frame);
-  })();
+    requestAnimationFrame(fallbackFrame);
+  }
+
+  if (ctx) {
+    resize();
+    window.addEventListener('resize', resize);
+    stage.insertBefore(canvas, stage.firstChild);
+    fallbackActive = true;
+    fallbackFrame();
+  }
+
+  // ---- Progressive upgrade: real three.js/WebGL rendering ----
+  var loader = document.createElement('script');
+  loader.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  loader.async = true;
+  var timedOut = false;
+  var upgradeTimer = setTimeout(function () { timedOut = true; }, 5000);
+
+  loader.onload = function () {
+    clearTimeout(upgradeTimer);
+    if (timedOut || typeof THREE === 'undefined') return;
+    try {
+      var s = stage.clientWidth || 220;
+      var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(s, s);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.z = 4.2;
+
+      var color = isDark ? 0x6cbfa4 : 0x2f5d50;
+      var geometry = new THREE.IcosahedronGeometry(1.5, 1);
+      var edges3d = new THREE.EdgesGeometry(geometry);
+      var material = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.7 });
+      var wire = new THREE.LineSegments(edges3d, material);
+      scene.add(wire);
+
+      var innerGeo = new THREE.IcosahedronGeometry(0.75, 0);
+      var innerMat = new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: 0.12, wireframe: true });
+      var innerMesh = new THREE.Mesh(innerGeo, innerMat);
+      scene.add(innerMesh);
+
+      // Swap: stop the fallback loop and hand the stage to the WebGL canvas.
+      fallbackActive = false;
+      window.removeEventListener('resize', resize);
+      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+      stage.insertBefore(renderer.domElement, stage.firstChild);
+
+      (function animate() {
+        wire.rotation.y += 0.0035;
+        wire.rotation.x += 0.0015;
+        innerMesh.rotation.y -= 0.002;
+        innerMesh.rotation.x += 0.001;
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      })();
+    } catch (e) {
+      // WebGL unavailable — the 2D canvas fallback is already running.
+    }
+  };
+  loader.onerror = function () { clearTimeout(upgradeTimer); };
+  document.head.appendChild(loader);
 })();
 
 // ---------- Research Projects carousel: arrows + dot navigation ----------
@@ -257,6 +315,19 @@
       });
     });
   });
+
+  // Pre-apply a filter from the URL, e.g. publications.html?type=journal —
+  // used by the About-section stat links on the homepage so "Q1 Journal
+  // Papers" etc. land on this page already filtered.
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var typeParam = params.get('type');
+    if (typeParam) {
+      var typeGroup = bar.querySelector('.filter-group[data-filter-group="type"]');
+      var targetBtn = typeGroup && typeGroup.querySelector('.filter-btn[data-filter="' + typeParam + '"]');
+      if (targetBtn) targetBtn.click();
+    }
+  } catch (e) {}
 
   apply();
 })();
