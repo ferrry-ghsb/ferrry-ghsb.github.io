@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yuwon Kim — VR-Based Human–AI Interaction Researcher</title>
-<meta name="description" content="Yuwon Kim — VR-based Human–AI Interaction researcher specializing in multimodal data fusion and explainable AI. PhD Candidate, SeoulTech.">
+<title>Yuwon Kim — Applied AI Researcher</title>
+<meta name="description" content="Yuwon Kim — Applied AI researcher specializing in multimodal data fusion and explainable AI. PhD Candidate, SeoulTech.">
 
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ferrry-ghsb.github.io/">
-<meta property="og:title" content="Yuwon Kim — VR-Based Human–AI Interaction Researcher">
+<meta property="og:title" content="Yuwon Kim — Applied AI Researcher">
 <meta property="og:description" content="PhD Candidate specializing in Virtual Reality, multimodal data fusion, and explainable AI for human-centered clinical decision support.">
 <meta property="og:image" content="https://ferrry-ghsb.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Yuwon Kim — VR-Based Human–AI Interaction Researcher">
+<meta name="twitter:title" content="Yuwon Kim — Applied AI Researcher">
 <meta name="twitter:description" content="PhD Candidate specializing in Virtual Reality, multimodal data fusion, and explainable AI for human-centered clinical decision support.">
 <meta name="twitter:image" content="https://ferrry-ghsb.github.io/og-image.png">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=19">
 <script>
   (function () {
     try {
@@ -35,9 +35,8 @@
     <div class="topnav-inner">
       <a class="brand" href="index.html">Yuwon Kim</a>
       <div class="topnav-links">
-        <a href="#about">About</a>
-        <a href="#how-it-works">Framework</a>
-        <a href="#research">Research</a>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
         <a href="publications.html">Publications</a>
         <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
         <a href="mailto:ferrry@seoultech.ac.kr">Contact</a>
@@ -57,126 +56,227 @@
           <img src="profile.jpg" alt="Yuwon Kim">
         </div>
       </div>
-      <p class="headline">VR-Based Human–AI Interaction Researcher</p>
+      <p class="headline">Applied AI Researcher</p>
       <h1 class="name">Yuwon Kim</h1>
       <p class="affiliation">PhD Candidate, Dept. of Applied Artificial Intelligence<br>Seoul National University of Science and Technology (SeoulTech)</p>
       <p class="affiliation advisor">Advisor: Prof. Kyoungwon Seo — <a href="https://hai.seoultech.ac.kr/index.do" target="_blank" rel="noopener">HAI Lab ↗</a></p>
 
       <nav class="links">
-        <button type="button" class="link-pill" id="emailToggle" aria-expanded="false">Email</button>
-        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
         <a class="link-pill" href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="link-pill" href="https://orcid.org/0000-0002-5946-6249" target="_blank" rel="noopener">ORCiD</a>
         <a class="link-pill" href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link-pill" href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <button type="button" class="link-pill" id="emailToggle" aria-expanded="false">Email</button>
       </nav>
       <p class="email-reveal" id="emailReveal">ferrry@seoultech.ac.kr</p>
     </header>
 
     <section class="about reveal" id="about">
       <h2 class="section-title">About</h2>
-      <p>
-        I am a Human–Computer Interaction researcher specializing in Virtual Reality, multimodal
-        data fusion, and explainable AI — building human-centered intelligent systems that
-        understand and support people in real, situated contexts. My dissertation,
-        <em>An Information Fusion Framework of VR-Based Digital Biomarkers for Early Screening of
-        Mild Cognitive Impairment</em>, develops this approach in clinical decision support,
-        through collaboration with clinical experts (Asan Medical Center, Seoul), engineers at a
-        national research institute (KITECH), and international academic partners (Zurich
-        University of Applied Sciences). I am now extending this foundation to broader situated,
-        embodied, and everyday human-AI interaction contexts.
+
+      <div class="skill-pills" aria-label="Research keywords">
+        <span class="pill">Human-Computer Interaction</span>
+        <span class="pill">Virtual Reality</span>
+        <span class="pill">Multimodal Analytics</span>
+      </div>
+
+      <div class="stat-grid">
+        <a class="stat" href="publications.html?type=journal">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Q1 Journal Papers</span>
+        </a>
+        <a class="stat" href="publications.html?type=conference">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Conference Papers</span>
+        </a>
+        <a class="stat" href="projects.html">
+          <span class="stat-num">5</span>
+          <span class="stat-label">Funded R&amp;D Projects</span>
+        </a>
+        <a class="stat" href="publications.html?type=patent">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Patents</span>
+        </a>
+      </div>
+
+      <p class="about-lede">
+        My research sits at the intersection of behavioral science and AI: turning multimodal
+        signals into explainable AI systems that support human decision-making. This multidisciplinary
+        work is carried out in collaboration with clinicians at Asan Medical Center, engineers at
+        the Korea Institute of Industrial Technology (KITECH), and academic collaborators at the
+        Zurich University of Applied Sciences (ZHAW).
       </p>
-    </section>
-
-    <section class="how-it-works reveal" id="how-it-works">
-      <h2 class="section-title">How the Framework Works</h2>
-      <div class="diagram">
-        <svg class="diagram-svg"></svg>
-        <div class="diagram-row">
-          <div class="diagram-sources">
-            <button type="button" class="dnode" data-key="vr" data-caption="<strong>VR Behavioral Data.</strong> Captures how a person performs everyday activities (Instrumental Activities of Daily Living) inside a naturalistic VR task — the process of doing a task, not just whether it was completed.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="4"/><circle cx="8.5" cy="12" r="1.4"/><circle cx="15.5" cy="12" r="1.4"/></svg></span>
-              <span class="dnode-label">VR Behavior</span>
-            </button>
-            <button type="button" class="dnode" data-key="mri" data-caption="<strong>MRI.</strong> Structural neuroimaging biomarkers that anchor behavioral findings to underlying neurodegenerative changes.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/></svg></span>
-              <span class="dnode-label">MRI</span>
-            </button>
-            <button type="button" class="dnode" data-key="eeg" data-caption="<strong>EEG.</strong> Neurophysiological signals (e.g. SSVEP responses) linked to cognitive load and attentional impairment during tasks.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,13 6,13 8,7 11,19 14,5 16,13 22,13"/></svg></span>
-              <span class="dnode-label">EEG</span>
-            </button>
-            <button type="button" class="dnode" data-key="neuro" data-caption="<strong>Neuropsychological Tests.</strong> Standardized clinical assessments that provide the diagnostic ground truth the model is validated against.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v2H9z"/><path d="M8 10h8M8 14h5"/></svg></span>
-              <span class="dnode-label">Neuropsych. Tests</span>
-            </button>
-          </div>
-
-          <span class="diagram-sep" aria-hidden="true">↓</span>
-
-          <div class="diagram-mid">
-            <button type="button" class="dnode dnode-hub" data-key="fusion" data-caption="<strong>Information Fusion.</strong> A multimodal framework combines these heterogeneous, differently-scaled signals into one clinically interpretable representation — the core contribution of the dissertation.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg></span>
-              <span class="dnode-label">Information<br>Fusion</span>
-            </button>
-          </div>
-
-          <span class="diagram-sep" aria-hidden="true">↓</span>
-
-          <div class="diagram-end-col">
-            <button type="button" class="dnode dnode-hub dnode-final" data-key="decision" data-caption="<strong>Clinical Decision Support.</strong> Explainable, concordance-aware outputs help physicians screen for Mild Cognitive Impairment earlier and with more confidence.">
-              <span class="dnode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-              <span class="dnode-label">Clinical<br>Decision Support</span>
-            </button>
-          </div>
+      <div class="logo-marquee" aria-label="Collaborating institutions">
+        <div class="logo-track">
+          <span class="logo-chip"><img src="asan.png" alt="Asan Medical Center"></span>
+          <span class="logo-chip"><img src="kitech.png" alt="Korea Institute of Industrial Technology (KITECH)"></span>
+          <span class="logo-chip"><img src="zhaw.png" alt="Zurich University of Applied Sciences"></span>
+          <span class="logo-chip"><img src="hanyang-seoul.png" alt="Hanyang University Seoul Hospital"></span>
+          <span class="logo-chip"><img src="hanyang-guri.png" alt="Hanyang University Guri Hospital"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="asan.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="kitech.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="zhaw.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="hanyang-seoul.png" alt="" aria-hidden="true"></span>
+          <span class="logo-chip" aria-hidden="true"><img src="hanyang-guri.png" alt="" aria-hidden="true"></span>
         </div>
-        <p class="diagram-caption"></p>
       </div>
     </section>
 
-    <section class="research reveal" id="research">
-      <h2 class="section-title">Research Highlights</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>VR-Based Digital Biomarkers for Early MCI Screening</h3>
-          <p>
-            A machine learning pipeline classifying Mild Cognitive Impairment from VR-based
-            Instrumental Activities of Daily Living (IADL) behavior — showing that <em>how</em> a
-            person performs an activity, not just whether they complete it, carries clinically
-            meaningful signal.
-          </p>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/gaE9tQvdwOE?start=107&amp;end=122" title="Virtual kiosk test demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-caption">Virtual kiosk test in action (1:47–2:02)</p>
-        </div>
-        <div class="card">
-          <h3>Explainable, Multimodal Clinical Decision Support</h3>
-          <p>
-            A multimodal reasoning system integrating VR, MRI, and neuropsychological data,
-            including a multi-agent LLM pipeline that keeps AI-generated interpretations
-            transparent and trustworthy to physicians. Supported by an NRF research grant.
-          </p>
-        </div>
+    <section class="projects reveal" id="projects">
+      <h2 class="section-title">Research Projects</h2>
+      <p class="projects-intro">
+        As Principal Investigator or Lead Researcher, I have led five funded R&amp;D projects across
+        virtual systems, clinical diagnostics, robotic intervention, and cognitive capacity assessment.
+      </p>
+
+      <div class="carousel-dots" id="projectDots" role="tablist" aria-label="Select project">
+        <button type="button" class="dot active" data-index="0" aria-label="Project 1: LLM-Based Clinical Decision Support Tool"></button>
+        <button type="button" class="dot" data-index="1" aria-label="Project 2: On-Device AI-Based Self-Guided Hemorrhage Management System"></button>
+        <button type="button" class="dot" data-index="2" aria-label="Project 3: AI-Based Analysis of Social Interaction Abilities"></button>
+        <button type="button" class="dot" data-index="3" aria-label="Project 4: VR, EP, EEG, MRI Data Aggregation"></button>
+        <button type="button" class="dot" data-index="4" aria-label="Project 5: Digital Biomarker for Early Diagnosis of Dementia in VR"></button>
       </div>
+
+      <div class="project-carousel-wrap">
+        <button type="button" class="carousel-arrow carousel-prev" aria-label="Previous project">‹</button>
+        <div class="project-carousel" id="projectCarousel">
+
+          <a class="project-card" href="project-llm-cds.html">
+            <div class="project-card-top">
+              <h3>LLM-Based Clinical Decision Support Tool for Alzheimer's Disease</h3>
+            </div>
+            <div class="project-card-media">
+              <img src="proj-llm-cds.png" alt="LLM-Based Clinical Decision Support Tool for Alzheimer's Disease — system architecture" loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-sub">Multimodal reasoning integrating VR, MRI, and neuropsychological tests</p>
+              <div class="project-card-meta">
+                <span class="tag role">Principal Investigator</span>
+                <span class="tag">2025.09 – Present</span>
+              </div>
+              <span class="read-more">View project →</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="project-hemorrhage-robot.html">
+            <div class="project-card-top">
+              <h3>On-Device AI-Based Self-Guided Hemorrhage Management System</h3>
+            </div>
+            <div class="project-card-media">
+              <img src="proj-hemorrhage.png" alt="On-Device AI-Based Self-Guided Hemorrhage Management System — system diagram" loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-sub">Autonomous vascular-intervention robotics using ultrasound image data</p>
+              <div class="project-card-meta">
+                <span class="tag role">Lead Researcher</span>
+                <span class="tag">2025.09 – 2026.03</span>
+              </div>
+              <span class="read-more">View project →</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="project-social-interaction.html">
+            <div class="project-card-top">
+              <h3>AI-Based Analysis of Social Interaction Abilities via Immersive Content</h3>
+            </div>
+            <div class="project-card-media">
+              <img src="proj-social.jpg" alt="AI-Based Analysis of Social Interaction Abilities via Immersive Content — project roadmap" loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-sub">For individuals with developmental disabilities</p>
+              <div class="project-card-meta">
+                <span class="tag role">Lead Researcher</span>
+                <span class="tag">2025.04 – 2025.12</span>
+              </div>
+              <span class="read-more">View project →</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="project-veem-aggregation.html">
+            <div class="project-card-top">
+              <h3>VR, EP, EEG, MRI Data Aggregation for Digital Dementia Biomarker</h3>
+            </div>
+            <div class="project-card-media">
+              <img src="proj-veem.png" alt="VR, EP, EEG, MRI Data Aggregation for Digital Dementia Biomarker — modality overview" loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-sub">A unified multimodal pipeline for early screening of Mild Cognitive Impairment</p>
+              <div class="project-card-meta">
+                <span class="tag role">Lead Researcher</span>
+                <span class="tag">2021.09 – 2024.02</span>
+              </div>
+              <span class="read-more">View project →</span>
+            </div>
+          </a>
+
+          <a class="project-card" href="project-vr-kiosk.html">
+            <div class="project-card-top">
+              <h3>Digital Biomarker for Early Diagnosis of Dementia in VR</h3>
+            </div>
+            <div class="project-card-media">
+              <img src="pub-digital-marker.jpg" alt="Digital Biomarker for Early Diagnosis of Dementia in VR — VR virtual kiosk test session" loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-sub">The VR virtual-kiosk cognitive test and eye/hand-tracking system</p>
+              <div class="project-card-meta">
+                <span class="tag role">Lead Researcher</span>
+                <span class="tag">2021.09 – 2024.02</span>
+              </div>
+              <span class="read-more">View project →</span>
+            </div>
+          </a>
+
+        </div>
+        <button type="button" class="carousel-arrow carousel-next" aria-label="Next project">›</button>
+      </div>
+      <a class="view-all" href="projects.html">View all projects →</a>
     </section>
 
     <section class="pub-teaser reveal">
       <h2 class="section-title">Selected Publications</h2>
-      <ul class="pub-list">
-        <li><a class="pub-link" href="https://www.jmir.org/2024/1/e54538" target="_blank" rel="noopener">Park, B., <strong>Kim, Y.</strong>, et al. (2024). Integrating biomarkers from virtual reality and magnetic resonance imaging for the early detection of mild cognitive impairment. <span class="venue">Journal of Medical Internet Research</span>, 26, e54538. <span class="tag">SCIE, Q1, Top 3%</span></a></li>
-        <li><a class="pub-link" href="https://www.jmir.org/2023/1/e48093" target="_blank" rel="noopener"><strong>Kim, S. Y.</strong>, et al. (2023). Digital marker for early screening of mild cognitive impairment through hand and eye movement analysis in virtual reality. <span class="venue">Journal of Medical Internet Research</span>, 25, e48093. <span class="tag">SCIE, Q1, Top 3%</span></a></li>
-        <li><a class="pub-link" href="https://dl.acm.org/doi/10.1145/3706599.3719284" target="_blank" rel="noopener"><strong>Kim, Y.</strong> (2025). Beyond Missing Data: A Multimodal Approach Using VR-EEG-MRI (VEEM) Biomarkers for Detecting MCI. <span class="venue">Extended Abstracts of the ACM CHI Conference on Human Factors in Computing Systems</span>. <span class="tag">2nd Place Award</span> <span class="tag">15% acceptance</span></a></li>
-      </ul>
+      <div class="teaser-grid">
+        <a class="teaser-card" href="https://www.jmir.org/2024/1/e54538" target="_blank" rel="noopener">
+          <div class="teaser-media">
+            <img src="pub-integrating-biomarkers.png" alt="Hand movement, eye movement, and MRI segmentation comparison — healthy controls vs. patients with MCI" loading="lazy">
+          </div>
+          <div class="teaser-body">
+            <h3>Integrating biomarkers from virtual reality and MRI for early detection of MCI</h3>
+            <p>Park, B., <strong>Kim, Y.</strong>, et al. (2024) · <em>JMIR</em> <span class="tag">SCIE, Q1, Top 3%</span></p>
+            <span class="read-more">Read paper →</span>
+          </div>
+        </a>
+        <a class="teaser-card" href="https://www.jmir.org/2023/1/e48093" target="_blank" rel="noopener">
+          <div class="teaser-media">
+            <img src="pub-digital-marker.jpg" alt="VR virtual kiosk test session — hand and eye movement data collection" loading="lazy">
+          </div>
+          <div class="teaser-body">
+            <h3>Digital marker for early screening of MCI via hand and eye movement in VR</h3>
+            <p><strong>Kim, S. Y.</strong>, et al. (2023) · <em>JMIR</em> <span class="tag">SCIE, Q1, Top 3%</span></p>
+            <span class="read-more">Read paper →</span>
+          </div>
+        </a>
+        <a class="teaser-card" href="https://dl.acm.org/doi/10.1145/3706599.3719284" target="_blank" rel="noopener">
+          <div class="teaser-media">
+            <img src="pub-veem-missing.png" alt="Laboratory vs. real-world VEEM biomarker collection feeding a machine learning model" loading="lazy">
+          </div>
+          <div class="teaser-body">
+            <h3>Beyond Missing Data: A Multimodal Approach Using VR-EEG-MRI (VEEM) Biomarkers</h3>
+            <p><strong>Kim, Y.</strong> (2025) · <em>ACM CHI Extended Abstracts</em> <span class="tag">2nd Place Award</span></p>
+            <span class="read-more">Read paper →</span>
+          </div>
+        </a>
+      </div>
       <a class="view-all" href="publications.html">View all publications, patents &amp; awards →</a>
     </section>
 
     <footer>
       <p>&copy; <span id="year"></span> Yuwon Kim. Built with GitHub Pages.</p>
+      <p class="footer-contact"><a href="mailto:ferrry@seoultech.ac.kr">ferrry@seoultech.ac.kr</a></p>
     </footer>
 
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="script.js?v=4" defer></script>
+  <script src="script.js?v=19" defer></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
