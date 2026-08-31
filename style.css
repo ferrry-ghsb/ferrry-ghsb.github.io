@@ -235,7 +235,7 @@ h2.section-title {
   color: var(--ink-soft);
   font-size: 0.98rem;
 }
-.about-lede {
+.about .about-lede {
   margin: 0 0 38px;
   color: var(--ink);
   font-size: 1rem;
@@ -275,7 +275,15 @@ h2.section-title {
   flex-direction: column;
   gap: 4px;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+  margin: -4px;
+  transition: background 0.2s ease;
 }
+a.stat:hover { background: var(--accent-soft); }
+a.stat:hover .stat-num { text-decoration: underline; text-decoration-color: var(--accent); }
 .stat-num {
   font-size: 1.7rem;
   font-weight: 700;
@@ -835,13 +843,13 @@ a.pub-link:hover .tag { text-decoration: none; }
   margin: 0;
 }
 .page-header p a {
-  color: var(--ink-faint);
+  color: var(--accent);
+  font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: var(--line);
+  text-decoration-color: var(--accent-soft);
   text-underline-offset: 2px;
 }
 .page-header p a:hover {
-  color: var(--accent);
   text-decoration-color: var(--accent);
 }
 
