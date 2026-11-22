@@ -44,28 +44,22 @@
 <div class="widget" id="kioskDemo">
   <div class="kiosk-demo">
     <div class="kiosk-side">
-      <h3><span class="en">Your mission</span><span class="ko">주문 미션</span></h3>
-      <div class="kiosk-mission" id="kioskMission">
-        <span class="en">Order the following at the kiosk, as fast and accurately as you can:</span><span class="ko">아래 내용대로 최대한 빠르고 정확하게 주문해 주세요.</span>
-        <ol>
-          <li><span class="en">Dining place: <b>Eat in</b></span><span class="ko">식사 장소: <b>매장에서 식사</b></span></li>
-          <li><span class="en">Burger: <b>Shrimp burger</b></span><span class="ko">햄버거: <b>새우버거</b></span></li>
-          <li><span class="en">Side: <b>Cheese sticks</b></span><span class="ko">사이드: <b>치즈스틱</b></span></li>
-          <li><span class="en">Drink: <b>Coca-Cola</b></span><span class="ko">음료: <b>코카콜라</b></span></li>
-          <li><span class="en">Pay by <b>card</b>, PIN <b>6289</b>, then OK</span><span class="ko">결제: <b>카드 결제</b>, 비밀번호 <b>6289</b> 입력 후 확인</span></li>
-        </ol>
-      </div>
-      <label class="kiosk-opts"><input type="checkbox" id="hideMission"> <span class="en">Hide the mission after I press Start (closer to the real test)</span><span class="ko">시작하면 미션 가리기 (실제 검사와 더 비슷해요)</span></label>
-      <p class="widget-note"><span class="en">We record your completion time, wrong taps, pointer path and how long the pointer rests on the correct item. Nothing leaves your browser.</span><span class="ko">완료 시간, 잘못 누른 횟수, 포인터 이동 경로, 정답 항목 위에 포인터가 머문 시간을 측정해요. 데이터는 브라우저 밖으로 전송되지 않아요.</span></p>
-      <div class="kiosk-result" id="kioskResult" hidden></div>
+      <h3><span class="en">How it works</span><span class="ko">진행 방법</span></h3>
+      <ol class="kiosk-how">
+        <li><span class="en">Press <b>Listen first</b> on the kiosk. The order is spoken <b>once</b>, as participants heard it before the test. Sound on.</span><span class="ko">키오스크의 <b>먼저 듣기</b>를 누르세요. 실제 참여자처럼 주문 내용을 <b>한 번만</b> 들려드려요. 소리를 켜 주세요.</span></li>
+        <li><span class="en">Keep it in mind and place the order. The kiosk won't correct you: a wrong item is ordered and counted, just as in the study.</span><span class="ko">기억한 대로 주문하세요. 키오스크는 틀려도 알려주지 않아요. 연구처럼 잘못 고른 항목도 그대로 주문되고 오류로 세요.</span></li>
+        <li><span class="en">Your time and errors are shown next to the study's two groups at the end.</span><span class="ko">마지막에 완료 시간과 오류 수를 연구의 두 집단 평균과 함께 보여드려요.</span></li>
+      </ol>
+      <p class="widget-note"><span class="en">Nothing leaves your browser. Screens are the study's own interface; the web version of the panels is by Bogyeom Park (HAI Lab), used with permission.</span><span class="ko">기록은 브라우저 밖으로 나가지 않아요. 화면은 연구에서 쓴 실제 인터페이스이고, 웹용 패널은 박보겸 연구원(HAI Lab)이 만든 것을 허락받아 사용했어요.</span></p>
     </div>
-    <div class="kiosk-device"><div class="kiosk-screen">
-      <div class="ks-top"><div class="ks-logo"><span style="height:12px"></span><span style="height:18px"></span><span style="height:9px"></span></div><span class="ks-step"></span></div>
-      <div class="ks-progress"><i></i></div>
-      <div class="ks-body"></div>
-    </div></div>
+    <div class="kiosk-main"><div class="kiosk-stage" id="kiosk-stage"></div><p class="kiosk-caption" id="kiosk-caption" aria-live="polite"></p></div>
   </div>
+  <div class="kiosk-result" id="kioskResult" tabindex="-1" hidden></div>
 </div>
+<h2><span class="n">WATCH</span><span class="en">Watch the VR version</span><span class="ko">VR 버전 보기</span></h2>
+<div class="video-embed"><iframe src="https://www.youtube.com/embed/gaE9tQvdwOE?start=107&amp;end=122" title="Virtual Kiosk Test in VR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+<p class="widget-note"><span class="en">A participant doing the test in VR with a head-mounted display and hand controller.</span><span class="ko">참여자가 HMD와 핸드 컨트롤러로 VR 검사를 수행하는 모습이에요.</span></p>
+<div class="callout"><span class="en"><strong>What the browser can and can't measure.</strong> The study used four biomarkers. Time to completion and number of errors carry over to a browser. Hand-movement speed needs a tracked controller (m/s), and gaze needs the headset's eye tracker — a mouse can't stand in for either, so this demo doesn't pretend to.</span><span class="ko"><strong>브라우저로 측정할 수 있는 것과 없는 것.</strong> 연구에서는 4개 바이오마커를 썼어요. 완료 시간과 오류 수는 브라우저에서도 측정할 수 있어요. 하지만 손 움직임 속도는 추적되는 컨트롤러(m/s)가, 시선은 헤드셋의 시선 추적기가 필요해요. 마우스로는 대신할 수 없어서 이 데모에서는 측정하지 않아요.</span></div>
 <h2><span class="n">01</span><span class="en">Why a kiosk?</span><span class="ko">왜 키오스크인가?</span></h2>
 <p class="en">The earliest functional signs of MCI show up in complex everyday activities (IADL) that need memory, attention and executive function at once. Ordering at a kiosk is one of these tasks, it is now part of daily life for older adults, and every step has a correct answer — so behavior can be read against the task context.</p><p class="ko">MCI의 가장 이른 기능 저하는 기억·주의·집행기능이 함께 필요한 복잡한 일상생활(IADL)에서 나타납니다. 키오스크 주문은 그런 과제이고, 이제 고령자의 일상이 되었으며, 단계마다 정답이 있어 행동을 과제 맥락에 비추어 해석할 수 있습니다.</p>
 <figure><div class="frame"><img src="img/kiosk-steps.jpg" alt="The six action steps: dining place, burger, side, drink, payment method, PIN." loading="lazy"></div><figcaption><span class="en">The six action steps: dining place, burger, side, drink, payment method, PIN.</span><span class="ko">6단계 과제: 식사 장소, 햄버거, 사이드, 음료, 결제 방법, 비밀번호.</span></figcaption></figure>
@@ -91,6 +85,6 @@
     <span><a href="mailto:ferrry@seoultech.ac.kr">ferrry@seoultech.ac.kr</a><a href="https://scholar.google.com/citations?user=50_NLUIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><a href="https://www.linkedin.com/in/yuwon-kim/" target="_blank" rel="noopener">LinkedIn</a><a href="https://orcid.org/0000-0002-5946-6249" target="_blank" rel="noopener">ORCiD</a></span>
   </div>
 </footer>
-<script src="script.js?v=20" defer></script><script src="kiosk.js?v=20" defer></script>
+<script src="script.js?v=20" defer></script><script src="kiosk/kiosk-layout.js?v=20" defer></script><script src="kiosk.js?v=20" defer></script>
 </body>
 </html>

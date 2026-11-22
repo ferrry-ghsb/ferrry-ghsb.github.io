@@ -4,6 +4,20 @@
   function lang() { return root.getAttribute('data-lang') === 'ko' ? 'ko' : 'en'; }
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
+
+  // ---------- image fallback ----------
+  var FALLBACK = 'img/placeholder.svg';
+  function fix(img) {
+    if (!img || img.dataset.fallback) return;
+    img.dataset.fallback = '1';
+    var chip = img.closest('.logo-chip');
+    if (chip) { chip.style.display = 'none'; return; }
+    img.src = FALLBACK; img.classList.add('is-fallback');
+    if (!img.alt) img.alt = '';
+  }
+  document.addEventListener('error', function (e) { if (e.target && e.target.tagName === 'IMG') fix(e.target); }, true);
+  document.querySelectorAll('img').forEach(function (img) { if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fix(img); });
+
   // ---------- theme ----------
   document.querySelectorAll('.theme-toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
